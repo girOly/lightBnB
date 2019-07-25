@@ -1,4 +1,4 @@
-NSERT INTO users
+INSERT INTO users
   (
   name, email, password)
 VALUES
@@ -23,15 +23,15 @@ VALUES
   INSERT INTO reservations (
   id, guest_id, property_id, start_date, end_date)
   VALUES (
-  100999, 723, 104, '2022-09-31', '2022-10-16');
+  1009999, 743, 114, '2022-09-30', '2022-10-15');
 
 
 
-  INSERT INTO property_reviews (
-  guest_id, property_id, reservation_id, rating, message)
-  VALUES (
-  831, 195, 1011943, 3, 'laurem ipsum');
-  INSERT INTO property_reviews (
-  guest_id, property_id, reservation_id, rating, message)
-  VALUES (
-  613, 333, 1016292, 4, 'laurem ipsum');
+    INSERT INTO property_reviews (
+    guest_id, property_id, reservation_id, rating, message)
+    VALUES (
+    328, 190, 1015655, 4, 'lauren ipsum lauren ipsum lauren ipsumlauren ipsum lauren ipsum lauren ipsum lauren ipsum lauren ipsumlaurenlauren ipsum.'),
+    (
+    340, 769, 1013720, 5, 'Filin alforec pad sevopa ej jesebfuh tap ma ajafihjoc pujawoso kuez zitu sebfal zialuti jool rudpi gogofiri da.'),
+    (
+    891, 290, 1016559, 3, 'Hawapel pasale udmupnej co uzfos novuhig bilad dedgure vim renfef soumi suti bop.');
