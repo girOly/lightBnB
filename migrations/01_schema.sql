@@ -1,10 +1,14 @@
-DROP TABLE IF EXISTS property_reviews;
-DROP TABLE IF EXISTS reservations;
-DROP TABLE IF EXISTS properties;
-DROP TABLE IF EXISTS users;
-​
-​
-CREATE TABLE properties (
+DROP TABLE IF EXISTS property_reviews CASCADE;
+DROP TABLE IF EXISTS reservations CASCADE;
+DROP TABLE IF EXISTS properties CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  email TEXT,
+  password TEXT
+);
+CREATE TABLE properties(
   id SERIAL PRIMARY KEY,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   title TEXT,
@@ -21,29 +25,19 @@ CREATE TABLE properties (
   province TEXT,
   post_code TEXT,
   active BOOLEAN DEFAULT TRUE
-);​
-
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  name TEXT,
-  email TEXT,
-  password TEXT
 );
-
-CREATE TABLE reservations (
+CREATE TABLE reservations(
   id SERIAL PRIMARY KEY,
   start_date DATE,
   end_date DATE,
-  property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
+  -- property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
   guest_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
-​
-​
-CREATE TABLE property_reviews (
+CREATE TABLE property_reviews(
   id SERIAL PRIMARY KEY,
   guest_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   reservation_id INTEGER REFERENCES reservations(id) ON DELETE CASCADE,
-  property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
+  -- property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
   rating INTEGER,
   message TEXT
 );
